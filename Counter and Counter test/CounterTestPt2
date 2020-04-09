@@ -1,0 +1,33 @@
+
+
+		public class CounterTestPt2 {
+
+			public static void main(String[] args) {
+			
+				
+				
+				Counter anotherVenueCounter = new Counter();
+				int rValue=anotherVenueCounter.getValue();
+				
+				anotherVenueCounter.clickMany(10);
+				rValue=anotherVenueCounter.getValue();
+				
+				anotherVenueCounter.unclickMany(5);
+				rValue=anotherVenueCounter.getValue();
+				System.out.println("Expected: 5");
+				System.out.println("Actual: " + rValue);
+				
+				anotherVenueCounter.reset();
+				
+				int mValue = anotherVenueCounter.getValue();
+				
+				anotherVenueCounter.clickMany(3);
+				mValue=anotherVenueCounter.getValue();
+				
+				anotherVenueCounter.unclickMany(4);
+				mValue=anotherVenueCounter.getValue();
+				System.out.println("Expected: -1");
+				System.out.println("Actual: "+mValue);
+			}
+		}
+	
