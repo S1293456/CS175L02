@@ -1,0 +1,42 @@
+
+
+		public class CounterTest {
+
+			public static void main(String[] args) {
+			
+				
+				
+				Counter venueCounter = new Counter();
+				int rValue=venueCounter.getValue();
+				
+				for(int i=1; i<=10;i++)
+				{
+				venueCounter.click();
+				}
+				rValue=venueCounter.getValue();
+				
+				for(int a=1;a<=5;a++)
+				{
+				venueCounter.unclick();
+				}
+				rValue=venueCounter.getValue();
+				System.out.println("Expected: 5");
+				System.out.println("Actual: " + rValue);
+				
+				venueCounter.reset();
+				int mValue = venueCounter.getValue();
+				for(int j=1;j<=3;j++)
+				{
+				venueCounter.click();
+				}
+				mValue=venueCounter.getValue();
+				for(int f=1;f<=4;f++)
+				{
+				venueCounter.unclick();
+				}
+				mValue=venueCounter.getValue();
+				System.out.println("Expected: -1");
+				System.out.println("Actual: "+mValue);
+			}
+		}
+	
