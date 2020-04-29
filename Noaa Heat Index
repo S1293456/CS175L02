@@ -1,0 +1,61 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+public class NOAA 
+{
+	public static void main(String args[])
+	{
+		DecimalFormat convert = new DecimalFormat("#");
+		Scanner input = new Scanner(System.in);
+		
+		for (double x = 80; x<=110; x += 2) 
+		{
+			System.out.printf("%5.0f ",x);
+		}
+		System.out.println();
+		System.out.println("___________________________________________________________________________________________");
+		for (double i = 40; i <= 100; i += 5)
+			{
+				System.out.printf("%5.0f |",i);
+				for (double a = 80; a <= 110; a+=2)
+				{
+					System.out.printf("%5.0f",(-42.379 + 2.04901523*a + 10.14333127*i - .22475541*a*i - .00683783*a*a - .05481717*i*i + .00122874*a*a*i + .00085282*a*i*i - .00000199*a*a*i*i ));
+				
+				}
+				System.out.println(); 
+			}
+		int temp = 0;
+		do {
+			System.out.println("Enter a tempurature or 0 to end");
+			temp = input.nextInt();
+			if(temp == 0)
+			{
+				break;
+			}
+			else 
+			{
+				System.out.println("Enter the humidity");
+				int humid = input.nextInt();
+				double THI = -42.379 + 2.04901523*temp + 10.14333127*humid - .22475541*temp*humid - .00683783*temp*temp - .05481717*humid*humid + .00122874*temp*temp*humid + .00085282*temp*humid*humid - .00000199*temp*temp*humid*humid;
+				if(THI<=90)
+				{
+					System.out.println("The THI for tempurature: "+temp+" and humidity: "+humid+" is "+convert.format(THI)+": Caution");
+				}
+				else if(THI<105)
+				{
+					System.out.println("The THI for tempurature: "+temp+" and humidity: "+humid+" is "+convert.format(THI)+": Extreme Caution");
+				}
+				if(THI<126)
+				{
+					System.out.println("The THI for tempurature: "+temp+" and humidity: "+humid+" is "+convert.format(THI)+": Danger");
+				}
+				else
+				{
+					System.out.println("The THI for tempurature: "+temp+" and humidity: "+humid+" is "+convert.format(THI)+": Extreme Danger");
+				}
+			}
+		}
+			while(temp!=0);
+		}
+	
+	}
+
